@@ -16,6 +16,11 @@ class SpecificationsRepository implements ISpecificationsRepository {
     Object.assign(specification, { name, description, created_at: new Date() });
     this.spefications.push(specification);
   }
+
+  findByName(name: string): Specification | undefined {
+    const specification = this.spefications.find((spec) => spec.name === name);
+    return specification;
+  }
 }
 
 export { SpecificationsRepository };

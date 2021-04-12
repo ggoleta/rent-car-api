@@ -13,7 +13,11 @@ specificationRouter.post("/", (request, response) => {
   );
   createSpecificationService.execute({ name, description });
 
-  return response.send();
+  return response.status(201).send();
+});
+
+specificationRouter.get("/", (request, response) => {
+  return response.status(201).json({ message: "Need to create a service." });
 });
 
 export { specificationRouter };
