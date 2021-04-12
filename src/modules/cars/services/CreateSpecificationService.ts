@@ -1,12 +1,12 @@
 import {
   ISpecificationsRepository,
-  ISpecifcationDTO,
+  ICreateSpecifcationDTO,
 } from "../repositories/ISpecificationsRepository";
 
 class CreateSpecificationService {
   constructor(private specificationsRepository: ISpecificationsRepository) {}
 
-  execute({ name, description }: ISpecifcationDTO): void {
+  execute({ name, description }: ICreateSpecifcationDTO): void {
     this.specificationsRepository.create({ name, description });
   }
 }

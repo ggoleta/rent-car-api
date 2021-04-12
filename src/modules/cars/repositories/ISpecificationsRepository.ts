@@ -1,10 +1,10 @@
-interface ISpecifcationDTO {
+interface ICreateSpecifcationDTO {
   name: string;
   description: string;
 }
 
 interface ISpecificationsRepository {
-  create({ name, description }: ISpecifcationDTO): void;
+  create({ name, description }: ICreateSpecifcationDTO): void;
 }
 
-export { ISpecificationsRepository, ISpecifcationDTO };
+export { ISpecificationsRepository, ICreateSpecifcationDTO };
