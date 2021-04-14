@@ -7,8 +7,17 @@ import {
 class SpecificationsRepository implements ISpecificationsRepository {
   private spefications: Specification[];
 
-  constructor() {
+  private static INSTANCE: SpecificationsRepository;
+
+  private constructor() {
     this.spefications = [];
+  }
+
+  public static getInstance(): SpecificationsRepository {
+    if (!SpecificationsRepository.INSTANCE) {
+      SpecificationsRepository.INSTANCE = new SpecificationsRepository();
+    }
+    return SpecificationsRepository.INSTANCE;
   }
 
   create({ name, description }: ICreateSpecifcationDTO): void {
@@ -20,6 +29,10 @@ class SpecificationsRepository implements ISpecificationsRepository {
   findByName(name: string): Specification | undefined {
     const specification = this.spefications.find((spec) => spec.name === name);
     return specification;
+  }
+
+  list(): Specification[] {
+    return this.spefications;
   }
 }
 

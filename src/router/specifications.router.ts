@@ -1,6 +1,7 @@
 import { Router } from "express";
 
 import { createSpecificationController } from "../modules/cars/useCases/createSpecification";
+import { listSpecificationsController } from "../modules/cars/useCases/listSpecifications";
 
 const specificationRouter = Router();
 
@@ -9,7 +10,7 @@ specificationRouter.post("/", (request, response) => {
 });
 
 specificationRouter.get("/", (request, response) => {
-  return response.status(201).json({ message: "Need to create a service." });
+  return listSpecificationsController.handle(request, response);
 });
 
 export { specificationRouter };
