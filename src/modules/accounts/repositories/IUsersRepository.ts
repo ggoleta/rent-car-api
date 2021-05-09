@@ -9,6 +9,7 @@ interface IUsersRepository {
     email,
   }: ICreateUserDTO): Promise<void>;
   findByEmail(email: string): Promise<User | undefined>;
+  findById(user_id: string): Promise<User | undefined>;
 }
 
 export { IUsersRepository, ICreateUserDTO };
