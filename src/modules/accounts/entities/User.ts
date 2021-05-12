@@ -13,6 +13,9 @@ class User {
   password!: string;
 
   @Column()
+  avatar!: string;
+
+  @Column()
   email!: string;
 
   @Column()

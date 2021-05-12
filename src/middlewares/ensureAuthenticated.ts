@@ -27,18 +27,18 @@ export async function ensureAuthenticated(
       token,
       "87439788b9a488eeb5fac43f7c69a853"
     ) as IPayload;
-    console.log(user_id);
 
     // validando o id
     const usersRepository = new UsersRepository();
     const user = await usersRepository.findById(user_id);
-    console.log("user: ", user);
     if (!user) {
       throw new AppError("User does not exists.", 401);
     }
 
     // add user id into request
-    request.user.id = user_id;
+    request.user = {
+      id: user_id,
+    };
 
     next();
   } catch {
