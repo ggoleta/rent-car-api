@@ -42,8 +42,6 @@ class AuthenticateUserUseCase {
       expiresIn: "1d",
     });
 
-    console.log(token);
-
     const tokenReturn: IResponse = {
       token,
       user: {
